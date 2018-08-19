@@ -1,0 +1,66 @@
+<div class="mainPageCol">
+    <div class="mainRowItem headerRow">
+        <h1 class="header">MCF Waterproofing</h1>
+        <h3 class="subHeader">Sub-Header text will contain some sort of welcome and brief introduction to the site</h3>
+        <h3 class="subHeader"> and then there could be some more text underneath</h3>
+        <button class="headerButton">Request An Estimate</button>
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem homeRow1">
+        <div class="textColumnLeft">
+            <p class="columnHeader">A HEALTHY FUNCTIONAL HOME IS FREE OF MOISTURE</p>
+            <p class="columnText">MCF Waterproofing can restore your wet basement into a functional, enjoyable, and save
+                living environment. Our 14+ years of experience and successful completion of over 1400 homes
+                insures you that your job will be done professionally the first time. We invite you to contact us for a
+                free no obligation home inspection today.</p>
+        </div>
+        <div class="imageColumnRight">
+            <img src="./assets/icons/WaterproofSystemsIcon_Large.png" height="166px;" width="160px;">
+        </div>
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem pageNameRow">
+        SERVICES WE OFFER
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem servicesSlider">
+        <div class="arrowLeft" ng-click="leftChange()"><img src="./assets/icons/ChevronLeft.png"/></div>
+        <div class="serviceIcon" ng-class="{'fadeIn': fadeIn}">
+            <img ng-src="{{selectedService.src}}" height="100"/>
+        </div>
+        <div class="serviceDescription" ng-class="{'fadeIn': fadeIn}">
+            <h3 class="columnHeader">{{selectedService.title}}</h3>
+            <p>{{selectedService.desc}}</p>
+            <button class="headerButton" style="margin-bottom:20px;">Request an Estimate</button>
+        </div>
+
+        <div class="arrowRight" ng-click="rightChange()"><img src="./assets/icons/ChevronRight.png"/></div>
+
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem homeContact">
+        <div class="imageOverlay">
+            <p style="color:white;margin:0;padding-top:40px;font-size:36px;">Want to get in contact
+                with us for an estimate?</p>
+
+            <div class="contactForm">
+                <p style="color:white;margin:0;padding-top:20px;font-size:18px;">Just fill out this
+                    and hit 'Submit' and we'll respond as soon as possible</p>
+                <form name="contactForm" novalidate style="margin-top:60px;">
+                    <label>What is your full name?</label><br>
+                    <input class="contactInput" ng-model="contact.name" required placeholder=""><br>
+                    <label>What is your phone number?</label><br>
+                    <input class="contactInput" ng-model="contact.name" required><br>
+                    <label>What is your full address?</label><br>
+                    <input class="contactInput" ng-model="contact.name" required><br>
+                </form>
+                <button class="contactFormButton">Request an Estimate</button>
+            </div>
+        </div>
+
+    </div>
+</div>

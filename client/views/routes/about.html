@@ -1,0 +1,54 @@
+<div class="mainPageCol">
+    <div class="mainRowItem headerRow">
+        <h1 class="header">MCF Waterproofing</h1>
+        <h3 class="subHeader">Sub-Header text will contain some sort of welcome and brief introduction to the site</h3>
+        <h3 class="subHeader"> and then there could be some more text underneath</h3>
+        <button class="headerButton">Request An Estimate</button>
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem pageNameRow">
+       ABOUT US
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem aboutImage">
+        <div class="aboutHeader">
+            <p class="aboutText">MCF WATERPROOFING IS A FAMILY OWNED COMPANY BLA BLA BLA STARTED BY MIKE FANNING. MIKE HAS BEEN WATERPROOFING BASEMENTS FOR THE PAST 15 YEARS AND SOME OTHER STUFF THAT WE COULD PUT HERE.</p>
+        </div>
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem dataList">
+        <div class="dataListTitle">ABOUT US</div>
+        <div class="dataListHeader">FIRST ABOUT HEADER</div>
+        <div class="dataListText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="dataListHeader">SECOND ABOUT HEADER</div>
+        <div class="dataListText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur.
+        </div>
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem finishedBasements">
+        <p class="whiteHeader" style="padding:0 20px;">
+            CHECKOUT THESE FINISHED BASEMENTS
+        </p>
+        <div class="basementContainer">
+            <div class="basementArrow" ng-click="leftChange()"><img style="position:relative;top:40%;" src="./assets/icons/ChevronLeft.png"/></div>
+            <div class="basementImage" ng-class="{'fadeIn': fadeIn}"><img ng-src="{{getBasementIndex(index)}}" width="100%" /></div>
+            <div class="basementImage" ng-class="{'fadeIn': fadeIn}"><img ng-src="{{getBasementIndex(index+1)}}" width="100%" /></div>
+            <div class="basementImage" ng-class="{'fadeIn': fadeIn}"><img ng-src="{{getBasementIndex(index+2)}}" width="100%" /></div>
+            <div class="basementImage" ng-class="{'fadeIn': fadeIn}"><img ng-src="{{getBasementIndex(index+3)}}" width ="100%" /></div>
+            <div class="basementArrow" ng-click="rightChange()"><img style="position:relative;top:40%;" src="./assets/icons/ChevronRight.png"/></div>
+
+        </div>
+    </div>
+</div>

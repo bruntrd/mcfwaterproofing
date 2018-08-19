@@ -1,0 +1,466 @@
+
+
+@font-face{
+    font-family: 'AvenirLt';
+    src: url('./fonts/AvenirLTStd-Light.otf');
+}
+
+*{
+    font-family:'AvenirLt',Helvetica,serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+html{
+    height:100%;
+}
+body{
+    margin-left:0;
+    margin-right:0;
+    min-height:100vh;
+}
+
+/*main flex*/
+
+.mainPageCol{
+    display:flex;
+    display:-ms-flexbox;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    height:100%;
+    width:100%;
+}
+.mainRowItem{
+    align-items:flex-start;
+}
+.headerRow{
+    background-image: url('../images/HeaderBackground.png');
+    background-repeat:no-repeat;
+    height:300px;
+    text-align:center;
+    color:white;
+}
+.header{
+    color:#2C3E50;
+}
+.subHeader{
+    color:white;
+}
+.headerButton{
+    background-color:#F55404;
+    border-radius:5px;
+    color:white;
+    box-shadow:none;
+    border:none;
+    padding:5px 10px;
+}
+
+.pageNameRow{
+    background-color:#51C3DB;
+    color:white;
+    height:40px;
+    font-size:24px;
+    line-height:40px;
+    text-align: center;
+}
+.orangeDivider{
+    background-color:#F55404;
+    height:20px;
+}
+.textColumnLeft{
+    display:inline;
+    width:42.5%;
+    margin-left:22.5%;
+    margin-right:2.5%;
+    float:left;
+}
+.columnHeader{
+    font-size:24px;
+    color:#51C3DB;
+}
+.columnText{
+    font-size:18px;
+    color:#FAFAFA;
+}
+.imageColumnRight{
+    align-items:center;
+    margin-left:2.5%;
+    float:left;
+}
+.dataList{
+    padding:5%;
+    background-color:#2F353B;
+}
+.dataListTitle{
+    font-size:40px;
+    color:#51C3DB;
+    margin:20px 60px;
+    padding-bottom:50px;
+    border-bottom:1px solid #FAFAFA
+}
+.dataListHeader{
+    font-size:32px;
+    color:#F55404;
+    margin:20px 60px;
+}
+.dataListText{
+    font-size:22px;
+    color:#FAFAFA;
+    margin:20px 60px;
+}
+
+/*navbar*/
+#navContainer{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    height:80px;
+    border-bottom: 5px solid #51C3DB;
+    background-color:white;
+    z-index:100;
+
+}
+#navLogo{
+    display:inline;
+    float:left;
+    margin-left:7%;
+    margin-top:20px;
+}
+#navToggle{
+    display:none;
+}
+#navList{
+    /*width:100%;*/
+    margin-top:20px;
+    margin-right:3%;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    justify-content:flex-end;
+    padding-top:10px
+}
+.navItem{
+    color:#F55404;
+    display:inline;
+    padding:5px 10px 5px 10px;
+    font-size:14px;
+    border-radius: 6px;
+}
+.divider{
+    padding:3px;
+    color:#F55404
+}
+.active{
+    background-color:#F55404;
+    color:white;
+}
+/*footer*/
+
+.footer{
+    width:100%;
+    height:30px;
+    background-color:#F55404;
+    color:white;
+    position:fixed;
+    bottom:0;
+    text-align:center;
+    font-size:14px;
+    line-height:30px;
+}
+.push{
+    height:20px;
+}
+/*home page*/
+
+.homeRow1{
+    background-color:#2F353B;
+    display:flex;
+    align-items:center;
+    min-height:300px;
+}
+.servicesSlider{
+    min-height:300px;
+    background-color:#e6e6e6;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.arrowLeft{
+    padding-left:10px;
+}
+.arrowRight{
+    padding-right:10px;
+}
+.serviceDescription{
+    width:500px;
+    min-height:200px;
+}
+.serviceIcon{
+    width:225px;
+    padding:30px 0;
+}
+.homeContact{
+    background-image:url('../images/ContactUsBackgroundCropped.png');
+    height:500px;
+}
+.imageOverlay{
+    position:relative;
+    text-align:center;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-color:rgba(245, 84, 4,0.6);
+}
+.contactForm{
+    display:inline-block;
+    text-align:left;
+    color:white;
+}
+.contactInput{
+    margin:10px 0 40px 0;
+    width:400px;
+    border:none;
+    box-shadow:none;
+    border-radius:6px;
+    font-size:18px;
+}
+.contactFormButton{
+    background-color:black;
+    border-radius:5px;
+    color:white;
+    box-shadow:none;
+    border:none;
+    padding:5px 10px;
+}
+
+/*services page*/
+.servicesRow{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    background-color:#2F353B;
+    justify-content:space-evenly;
+
+}
+.servicesItem{
+    text-align:center;
+    padding:30px 0;
+    width:400px;
+}
+.serviceItemTitle{
+    font-size:24px;
+    color:#F55404;
+}
+.serviceItemDesc{
+    font-size:18px;
+    color:white;
+}
+
+/*causes*/
+.causesText{
+    text-align: left;
+    margin-left:2%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:500px;
+    margin-top:40px;
+    /*height:100%;*/
+}
+.whiteHeader{
+    font-size:38px;
+    color:white;
+    font-weight:700;
+}
+.whiteText{
+    font-size:28px;
+    color:white;
+    margin-top:40px;
+}
+.waterProofing{
+    background-color:#1FA6DB;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+}
+.waterProofingImage{
+    width:50%;
+}
+
+/*process*/
+.waterProofBreakdown{
+    background-image:url('../images/HowDoYouWaterproofBackground.png');
+    text-align:center;
+    padding:40px 0;
+}
+.howDescription{
+    margin:20px 0;
+    color:white;
+    font-size:28px;
+}
+/*about*/
+.aboutImage{
+    background-image:url('../images/AboutUsBackground.png');
+    position:relative;
+    text-align: center;
+    color:white;
+    font-size: 38px;
+    font-weight:700;
+    height:600px;
+}
+.aboutHeader{
+    background:rgba(0,0,0,0.5);
+    position:absolute;
+    top:0;
+    left:0;
+    height:600px
+}
+.aboutText{
+    padding:10%;
+}
+.finishedBasements{
+    background-color:black;
+}
+.basementContainer{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+
+}
+.basementImage{
+    width:15%;
+    padding:40px;
+}
+
+/*media breaks*/
+
+@media only screen and (max-width:1300px){
+    #navList{
+        margin-right:0;
+    }
+    #navLogo{
+        margin-left:10px;
+    }
+}
+
+@media only screen and (max-width:940px){
+
+    #navToggle{
+        display:inline;
+        float:left;
+        font-size:28px;
+        margin-left:20px;
+        margin-top:25px;
+    }
+    #navLogo{
+        float:right;
+        margin-right:45%;
+    }
+    #navList{
+        position:absolute;
+        margin:5px 0;
+        top:80px;
+        left:-350px;
+        height:100vh;
+        width:350px;
+        background-color:#F55404;
+        color:white;
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-start;
+
+    }
+    .showNav{
+        -webkit-animation: slideIn 0.5s forwards;
+        -webkit-animation-delay: 0.5s;
+        animation: slideIn 0.5s forwards;
+        /*animation-delay: 0.5s;*/
+    }
+    @-webkit-keyframes slideIn {
+        100% { left: 0; }
+    }
+
+    @keyframes slideIn {
+        100% { left: 0; }
+    }
+    .hideNav{
+        -webkit-animation: slideOut 0.5s backwards;
+        -webkit-animation-delay: 0.5s;
+        animation: slideOut 0.5s backwards;
+        /*animation-delay: 0.5s;*/
+    }
+    @-webkit-keyframes slideOut {
+        100% { transform: translateX(-350px); }
+    }
+
+    @keyframes slideOut {
+        100% { transform: translateX(-350px); }
+    }
+    .navItem{
+        height:50px;
+        font-size:19px;
+        color:white;
+        border-radius:0;
+        line-height:50px;
+    }
+    .divider{
+        display:none;
+    }
+    .active{
+        background:rgba(0,0,0,0.6);
+    }
+
+
+}
+@media only screen and (max-width:600px){
+    .aboutText{
+        padding:2%;
+        font-size:30px;
+    }
+}
+
+/*transitions*/
+
+.fadeIn {
+    -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein .5s; /* Firefox < 16 */
+    -ms-animation: fadein .5s; /* Internet Explorer */
+    -o-animation: fadein .5s; /* Opera < 12.1 */
+    animation: fadein .5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

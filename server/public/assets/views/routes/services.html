@@ -1,0 +1,25 @@
+<div class="mainPageCol">
+    <div class="mainRowItem headerRow">
+        <h1 class="header">MCF Waterproofing</h1>
+        <h3 class="subHeader">Sub-Header text will contain some sort of welcome and brief introduction to the site</h3>
+        <h3 class="subHeader"> and then there could be some more text underneath</h3>
+        <button class="headerButton">Request An Estimate</button>
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem pageNameRow">
+        SERVICES WE OFFER
+    </div>
+</div>
+<div class="mainPageCol">
+    <div class="mainRowItem">
+        <div class="servicesRow">
+            <div class="servicesItem" ng-repeat="service in services">
+                <img ng-src="{{service.src}}" height="100" />
+                <p class="serviceItemTitle">{{service.title}}</p>
+                <p class="serviceItemDesc">{{service.desc}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
