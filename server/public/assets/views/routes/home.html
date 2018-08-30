@@ -26,8 +26,8 @@
     </div>
 </div>
 <div class="mainPageCol">
-    <div class="mainRowItem servicesSlider">
-        <div class="arrowLeft" ng-click="leftChange()"><img src="./assets/icons/ChevronLeft.png"/></div>
+    <div class="mainRowItem servicesSlider spaceEvenly">
+        <div class="arrowLeft" ng-click="leftChange()"><i class="fa fa-chevron-left" style="font-size:48px;;color:#2F353B"></i></div>
         <div class="serviceIcon" ng-class="{'fadeIn': fadeIn}">
             <img ng-src="{{selectedService.src}}" height="100"/>
         </div>
@@ -37,26 +37,26 @@
             <button class="headerButton" style="margin-bottom:20px;">Request an Estimate</button>
         </div>
 
-        <div class="arrowRight" ng-click="rightChange()"><img src="./assets/icons/ChevronRight.png"/></div>
+        <div class="arrowRight" ng-click="rightChange()"><i class="fa fa-chevron-right" style="font-size:48px;color:#2F353B"></i></div>
 
     </div>
 </div>
 <div class="mainPageCol">
     <div class="mainRowItem homeContact">
         <div class="imageOverlay">
-            <p style="color:white;margin:0;padding-top:40px;font-size:36px;">Want to get in contact
+            <p style="color:white;margin:0;padding-top:20px;font-size:36px;">Want to get in contact
                 with us for an estimate?</p>
 
             <div class="contactForm">
                 <p style="color:white;margin:0;padding-top:20px;font-size:18px;">Just fill out this
                     and hit 'Submit' and we'll respond as soon as possible</p>
-                <form name="contactForm" novalidate style="margin-top:60px;">
+                <form name="contactForm" novalidate style="margin-top:30px;">
                     <label>What is your full name?</label><br>
                     <input class="contactInput" ng-model="contact.name" required placeholder=""><br>
                     <label>What is your phone number?</label><br>
-                    <input class="contactInput" ng-model="contact.name" required><br>
+                    <input class="contactInput" ng-model="contact.number" required><br>
                     <label>What is your full address?</label><br>
-                    <input class="contactInput" ng-model="contact.name" required><br>
+                    <input class="contactInput" ng-model="contact.address" required><br>
                 </form>
                 <button class="contactFormButton">Request an Estimate</button>
             </div>

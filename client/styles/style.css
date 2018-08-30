@@ -21,7 +21,25 @@ body{
     margin-right:0;
     min-height:100vh;
 }
+.spaceEvenly {
+    justify-content: space-evenly;
+}
 
+@supports (-ms-accelerator: true) { /* Edge only */
+
+    .spaceEvenly {
+        justify-content: space-around;
+        /* you can also add some other adjustments to size, margins etc to get the same positioning */
+    }
+
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    .spaceEvenly {
+        justify-content: space-around;
+        /* you can also add some other adjustments to size, margins etc to get the same positioning */
+    }
+}
 /*main flex*/
 
 .mainPageCol{
@@ -188,7 +206,6 @@ body{
     flex-direction:row;
     flex-wrap:nowrap;
     align-items: center;
-    justify-content: space-evenly;
 }
 .arrowLeft{
     padding-left:10px;
@@ -206,7 +223,6 @@ body{
 }
 .homeContact{
     background-image:url('../images/ContactUsBackgroundCropped.png');
-    height:500px;
 }
 .imageOverlay{
     position:relative;
@@ -237,6 +253,7 @@ body{
     box-shadow:none;
     border:none;
     padding:5px 10px;
+    margin-bottom:10px;
 }
 
 /*services page*/
@@ -245,7 +262,6 @@ body{
     flex-direction:row;
     flex-wrap:wrap;
     background-color:#2F353B;
-    justify-content:space-evenly;
 
 }
 .servicesItem{
@@ -287,7 +303,6 @@ body{
     background-color:#1FA6DB;
     display:flex;
     flex-direction:row;
-    justify-content: space-evenly;
 }
 .waterProofingImage{
     width:50%;
@@ -330,13 +345,42 @@ body{
 .basementContainer{
     display:flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     justify-content: space-evenly;
-
 }
 .basementImage{
     width:15%;
     padding:40px;
+}
+.basementImage:hover{
+    cursor:pointer;
+    background:rgba(255,255,255,0.2);
+}
+.basementArrow:hover{
+    cursor:pointer;
+}
+
+#imageModalContainer{
+    z-index:100;
+    background: rgba(0,0,0,0.8);
+    height:100vh;
+    width:100vw;
+    position:fixed;
+    top:0;
+    text-align:center;
+    left:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+#closeButton{
+    position:fixed;
+    top:0;
+    right:0;
+    padding:10px;
+}
+#modalImage{
+    vertical-align:middle;
 }
 
 /*media breaks*/
@@ -376,6 +420,9 @@ body{
         flex-direction:column;
         justify-content:flex-start;
 
+    }
+    .waterProofingImage{
+        display:none;
     }
     .showNav{
         -webkit-animation: slideIn 0.5s forwards;
@@ -424,6 +471,21 @@ body{
         padding:2%;
         font-size:30px;
     }
+    .textColumnLeft{
+        margin-left:20px;
+        width:inherit;
+    }
+    .dataListHeader, .dataListTitle, .dataListText{
+        margin-left:10px;
+        margin-right:10px;
+    }
+    .contactInput{
+        width:250px;
+    }
+    .contactForm{
+        padding: 0px 5px;
+    }
+
 }
 
 /*transitions*/

@@ -27,6 +27,7 @@ myApp.controller('HomeController', ['$scope', '$http', '$location', 'servicesFac
         $scope.selectedService = $scope.services[serviceIndex]
     };
 
+
     function fade() {
         $scope.fadeIn = true;
         setTimeout(function () {
@@ -42,11 +43,11 @@ myApp.controller('HomeController', ['$scope', '$http', '$location', 'servicesFac
 }]);
 
 myApp.controller('AboutController', ['$scope', '$http', function ($scope, $http) {
-    $scope.basements = ['../assets/images/fakebasement1.png','../assets/images/fakebasement2.png','../assets/images/fakebasement3.png','../assets/images/fakebasement4.png','../assets/icons/BatteryBackUpIcon.png','../assets/icons/HeaderLogo.png','../assets/icons/InsulationIcon.png'];
+    $scope.basements = ['../assets/images/fakebasement1.png','../assets/images/fakebasement2.png','../assets/images/fakebasement3.png','../assets/images/fakebasement4.png','../assets/icons/BatteryBackUpIcon.png','../assets/icons/HeaderLogo.png','../assets/icons/InsulationIcon.png','../assets/images/HowDoYouWaterproofBackground.png'];
     $scope.index = 0;
 
     $scope.rightChange = function(){
-        fade()
+        fade();
         if($scope.index < $scope.basements.length -1){
             $scope.index ++;
         }else{
@@ -55,12 +56,22 @@ myApp.controller('AboutController', ['$scope', '$http', function ($scope, $http)
     };
 
     $scope.leftChange = function(){
-        fade()
+        fade();
         if($scope.index === 0){
             $scope.index = $scope.basements.length -1;
         }else{
             $scope.index --;
         }
+    };
+    $scope.openModal = function(i){
+        $scope.selectedIndex = i;
+        $scope.imageModal = true;
+    };
+    $scope.closeModal = function(){
+        $scope.imageModal = false;
+    };
+    $scope.stayOpen = function($event){
+        $event.stopPropagation();
     };
 
     $scope.getBasementIndex = function(i){
