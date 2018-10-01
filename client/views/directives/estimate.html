@@ -1,0 +1,21 @@
+<div id="closeButton"><i class="fa fa-times" style="font-size:32px;color:white;"></i></div>
+
+<div class="estimateModal" ng-click="stayOpen($event)">
+    <div class="estimateOverlay">
+        <p style="color:white;margin:0;padding-top:20px;font-size:36px;">Want to get in contact
+            with us for an estimate?</p>
+        <div class="contactForm">
+            <p style="color:white;margin:0;padding-top:20px;font-size:18px;">Just fill out this
+                and hit 'Submit' and we'll respond as soon as possible</p>
+            <form name="contactForm" novalidate style="margin-top:30px;">
+                <label>What is your full name?</label><br>
+                <input class="contactInput" ng-model="contact.name" required placeholder=""><br>
+                <label>What is your phone number?</label><br>
+                <input class="contactInput" ng-model="contact.number" required><br>
+                <label>What is your full address?</label><br>
+                <input class="contactInput" ng-model="contact.address" required><br>
+            </form>
+            <button class="estimateFormButton">Request an Estimate</button>
+        </div>
+    </div>
+</div>

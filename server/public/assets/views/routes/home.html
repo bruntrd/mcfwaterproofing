@@ -1,9 +1,12 @@
 <div class="mainPageCol">
     <div class="mainRowItem headerRow">
-        <h1 class="header">MCF Waterproofing</h1>
-        <h3 class="subHeader">Sub-Header text will contain some sort of welcome and brief introduction to the site</h3>
-        <h3 class="subHeader"> and then there could be some more text underneath</h3>
-        <button class="headerButton">Request An Estimate</button>
+        <div class="transparentOverlay">
+            <div class="header">MCF Waterproofing</div>
+            <div class="subHeader">Local and family owned waterproofing serving Southern Minnesota, Southwest Wisconsin,
+                and Northern Iowa with 15 years of experience</div>
+            <div class="subHeader">We install custom interior waterproofing systems based on your needs</div>
+            <button class="headerButton">Request an Estimate</button>
+        </div>
     </div>
 </div>
 <div class="mainPageCol">
@@ -27,7 +30,8 @@
 </div>
 <div class="mainPageCol">
     <div class="mainRowItem servicesSlider spaceEvenly">
-        <div class="arrowLeft" ng-click="leftChange()"><i class="fa fa-chevron-left" style="font-size:48px;;color:#2F353B"></i></div>
+        <div class="arrowLeft" ng-click="leftChange()"><i class="fa fa-chevron-left"
+                                                          style="font-size:48px;;color:#2F353B"></i></div>
         <div class="serviceIcon" ng-class="{'fadeIn': fadeIn}">
             <img ng-src="{{selectedService.src}}" height="100"/>
         </div>
@@ -37,7 +41,8 @@
             <button class="headerButton" style="margin-bottom:20px;">Request an Estimate</button>
         </div>
 
-        <div class="arrowRight" ng-click="rightChange()"><i class="fa fa-chevron-right" style="font-size:48px;color:#2F353B"></i></div>
+        <div class="arrowRight" ng-click="rightChange()"><i class="fa fa-chevron-right"
+                                                            style="font-size:48px;color:#2F353B"></i></div>
 
     </div>
 </div>

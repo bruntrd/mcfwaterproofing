@@ -1,9 +1,12 @@
 <div class="mainPageCol">
     <div class="mainRowItem headerRow">
-        <h1 class="header">MCF Waterproofing</h1>
-        <h3 class="subHeader">Sub-Header text will contain some sort of welcome and brief introduction to the site</h3>
-        <h3 class="subHeader"> and then there could be some more text underneath</h3>
-        <button class="headerButton">Request An Estimate</button>
+        <div class="transparentOverlay">
+            <div class="header">MCF Waterproofing</div>
+            <div class="subHeader">Local and family owned waterproofing serving Southern Minnesota, Southwest Wisconsin,
+                and Northern Iowa with 15 years of experience</div>
+            <div class="subHeader">We install custom interior waterproofing systems based on your needs</div>
+            <button class="headerButton">Request an Estimate</button>
+        </div>
     </div>
 </div>
 <div class="mainPageCol">
@@ -18,8 +21,16 @@
                 <img ng-src="{{service.src}}" height="100" />
                 <p class="serviceItemTitle">{{service.title}}</p>
                 <p class="serviceItemDesc">{{service.desc}}</p>
-
+                <div ng-if="service.imageDescription" class="serviceImageLink"><a ng-click="openDescriptionImageModal(service.imageDescriptionPath)">What does it look like?</a></div>
             </div>
+
         </div>
     </div>
 </div>
+<div class="imageModalContainer" ng-if="imageModal" ng-click="closeModal()">
+    <div id="closeButton"><i class="fa fa-times" style="font-size:32px;color:white;"></i></div>
+    <div ng-click="stayOpen($event)">
+        <img id="modalImage" ng-src="{{selectedDescriptionImage}}"/>
+    </div>
+</div>
+

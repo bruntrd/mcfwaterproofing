@@ -1,8 +1,12 @@
 <div id="navContainer" onresize="resizeFunction()">
     <div id="navToggle" ng-click="toggleNav()"><i class="fa fa-bars"></i></div>
-    <div id="navLogo">
-        <img src="./assets/images/mainLogo.jpeg" height="40" />
+    <div id="navNumbers">
+        <!--<div class="number">(507) 226-1478</div>-->
+        <img id="headerLogo" src="./assets/images/mainLogo.jpeg" height="60"/>
+        <!--<div class="number">(651) 207-2312</div>-->
     </div>
+
+
     <div id="navList" ng-class="{'showNav' : showNav, 'hideNav': hideNav}">
         <div class="navItem" ng-class="{'active' : isActive('/home')}"><a href="/home">HOME</a></div>
         <div class="divider">|</div>
@@ -14,7 +18,7 @@
         <div class="divider">|</div>
         <div class="navItem" ng-class="{'active' : isActive('/about')}"><a href="/about">ABOUT US</a></div>
         <div class="divider">|</div>
-        <div class="navItem"><a href="">REQUEST AN ESTIMATE</a></div>
+        <div class="navItem"><a ng-click="openContactModal()">REQUEST AN ESTIMATE</a></div>
     </div>
 
 </div>

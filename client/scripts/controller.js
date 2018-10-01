@@ -43,45 +43,47 @@ myApp.controller('HomeController', ['$scope', '$http', '$location', 'servicesFac
 }]);
 
 myApp.controller('AboutController', ['$scope', '$http', function ($scope, $http) {
-    $scope.basements = ['../assets/images/fakebasement1.png','../assets/images/fakebasement2.png','../assets/images/fakebasement3.png','../assets/images/fakebasement4.png','../assets/icons/BatteryBackUpIcon.png','../assets/icons/HeaderLogo.png','../assets/icons/InsulationIcon.png','../assets/images/HowDoYouWaterproofBackground.png'];
+    $scope.basements = ['../assets/images/fakebasement1.png', '../assets/images/fakebasement2.png', '../assets/images/fakebasement3.png', '../assets/images/fakebasement4.png', '../assets/icons/BatteryBackUpIcon.png', '../assets/icons/HeaderLogo.png', '../assets/icons/InsulationIcon.png', '../assets/images/HowDoYouWaterproofBackground.png'];
     $scope.index = 0;
 
-    $scope.rightChange = function(){
+    $scope.rightChange = function () {
         fade();
-        if($scope.index < $scope.basements.length -1){
-            $scope.index ++;
-        }else{
+        if ($scope.index < $scope.basements.length - 1) {
+            $scope.index++;
+        } else {
             $scope.index = 0;
         }
     };
 
-    $scope.leftChange = function(){
+    $scope.leftChange = function () {
         fade();
-        if($scope.index === 0){
-            $scope.index = $scope.basements.length -1;
-        }else{
-            $scope.index --;
+        if ($scope.index === 0) {
+            $scope.index = $scope.basements.length - 1;
+        } else {
+            $scope.index--;
         }
     };
-    $scope.openModal = function(i){
+    $scope.openModal = function (i) {
         $scope.selectedIndex = i;
         $scope.imageModal = true;
+        console
     };
-    $scope.closeModal = function(){
+    $scope.closeModal = function () {
         $scope.imageModal = false;
     };
-    $scope.stayOpen = function($event){
+    $scope.stayOpen = function ($event) {
         $event.stopPropagation();
     };
 
-    $scope.getBasementIndex = function(i){
+    $scope.getBasementIndex = function (i) {
         var offset = 0;
-        if(i > $scope.basements.length -1){
-            offset = i-($scope.basements.length);
+        if (i > $scope.basements.length - 1) {
+            offset = i - ($scope.basements.length);
             return $scope.basements[offset]
         }
         return $scope.basements[i];
     };
+
     function fade() {
         $scope.fadeIn = true;
         setTimeout(function () {
@@ -100,10 +102,17 @@ myApp.controller('ProcessController', ['$scope', '$http', function ($scope, $htt
 
 }]);
 
-myApp.controller('ServicesController', ['$scope', '$http', 'servicesFactory', function ($scope, $http,servicesFactory) {
+myApp.controller('ServicesController', ['$scope', '$http', 'servicesFactory', function ($scope, $http, servicesFactory) {
     console.log('service controller')
     $scope.services = servicesFactory;
-    console.log($scope.services);
+
+    $scope.openDescriptionImageModal = function (image) {
+        $scope.imageModal = true;
+        $scope.selectedDescriptionImage = image;
+    };
+    $scope.closeModal = function () {
+        $scope.imageModal = false;
+    };
 }]);
 
 myApp.controller('CausesController', ['$scope', '$http', function ($scope, $http) {
@@ -111,23 +120,41 @@ myApp.controller('CausesController', ['$scope', '$http', function ($scope, $http
 
 }]);
 
-myApp.directive('footer', function(){
-    let controller = ['$scope', function($scope){
+myApp.directive('footer', function () {
+    let controller = ['$scope', function ($scope) {
         $scope.year = new Date().getFullYear();
 
     }];
     return {
-        scope : {},
+        scope: {},
         restrict: 'EA',
         controller: controller,
         templateUrl: '/assets/views/directives/footer.html'
     }
 });
 
+myApp.directive('estimate', function () {
+    let controller = ['$scope', '$location', '$window','$rootScope', function ($scope, $location, $window, $rootScope) {
+        $rootScope.closeEstimate = function(){
+            $rootScope.showContactForm = false;
+        }
+        $scope.stayOpen = function($event){
+            $event.stopPropagation();
+        }
+    }];
+    return {
+        scope: {},
+        restrict: 'EA',
+        controller: controller,
+        templateUrl: '/assets/views/directives/estimate.html'
+    };
+});
+
 myApp.directive('navbar', function () {
-    let controller = ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    let controller = ['$scope', '$location', '$window','$rootScope', function ($scope, $location, $window,$rootScope) {
         $scope.showNav = $window.innerWidth < 940 ? false : true;
         $scope.hideNav = false;
+        $rootScope.showContactForm = false;
         $scope.toggleNav = function () {
             $scope.showNav = !$scope.showNav;
             !$scope.showNav ? $scope.hideNav = true : $scope.hideNav = false;
@@ -143,6 +170,11 @@ myApp.directive('navbar', function () {
             if (!$scope.$$phase) {
                 $scope.$apply();
             }
+
+        };
+        $scope.openContactModal = function(){
+            $rootScope.showContactForm = true;
+            console.log('roooot',$rootScope.showContactForm);
 
         };
         $scope.isActive = function (route) {
@@ -161,54 +193,70 @@ myApp.directive('navbar', function () {
 });
 
 myApp.factory('servicesFactory', function () {
-    const servicesArray = [{
-        'title': 'Battery Backup Systems',
-        'src': './assets/icons/BatteryBackUpIcon.png',
-        'desc': 'Here were going to have some text on battery backup.  Mainly it will just be in a short description on what it is and maybe how its implemented'
-    },
+    const servicesArray = [
         {
-            'title': 'New Construction Insulation',
-            'src': './assets/icons/InsulationIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
-        },
-        {
-            'title': 'Mold Resistant Panels',
-            'src': './assets/icons/MoldResistantIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+            'title': 'Interior Waterproofing Systems',
+            'src': './assets/icons/WaterproofSystemsIcon.png',
+            'imageDescription': true,
+            'imageDescriptionPath': '../assets/images/fakebasement1.png',
+            'desc': 'Drain tile installation for any amount of space for the inside of your home.'
         },
         {
             'title': 'Sump Baskets',
             'src': './assets/icons/SumpBasketIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+            'imageDescription': true,
+            'imageDescriptionPath': '../assets/images/fakebasement1.png',
+            'desc': 'Water collection basket nested airtight into the ground of your basement.'
         },
         {
             'title': 'Sump Pumps',
             'src': './assets/icons/SumpPumpIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+            'imageDescription': true,
+            'imageDescriptionPath': '../assets/images/fakebasement1.png',
+            'desc': 'Reliable, cast-iron pump system fitting pushes water to the exterior and away from your home.'
+        },
+        {
+            'title': 'Battery Backup Systems',
+            'src': './assets/icons/BatteryBackUpIcon.png',
+            'imageDescription': true,
+            'imageDescriptionPath': '../assets/images/fakebasement1.png',
+            'desc': 'Backup system installation for potential power outages or primary battery failure.'
+        },
+        {
+            'title': 'New Construction Installation',
+            'src': './assets/icons/InsulationIcon.png',
+            'imageDescription': true,
+            'imageDescriptionPath': '../assets/images/fakebasement1.png',
+            'desc': 'Ensuring waterproofing is done correctly before final construction of homes and saving money for home buyers.'
+        },
+        {
+            'title': 'Mold Resistant Panels',
+            'src': './assets/icons/MoldResistantIcon.png',
+            'imageDescription': false,
+            'imageDescriptionPath': '',
+            'desc': 'Setting of panels over block or poured foundations, or prior to framing to avoid moisture within the walls.'
         },
         {
             'title': 'Sump Pump Discharge',
             'src': './assets/icons/SumpPumpDischargeIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+            'imageDescription': true,
+            'imageDescriptionPath': '../assets/images/fakebasement1.png',
+            'desc': 'Underground or above ground water discharge system.'
         },
         {
             'title': 'Wall and Floor Moisture Solutions',
             'src': './assets/icons/WallFloorIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+            'imageDescription': false,
+            'imageDescriptionPath': '',
+            'desc': 'Waterproof painting, crack repair and vapor barriers to prevent mold or moisture.'
+
         },
         {
-            'title': 'Wall Straightening',
-            'src': './assets/icons/WallStraighteningIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
-        },
-        {
-            'title': 'Interior Waterproofing Systems',
-            'src': './assets/icons/WaterproofSystemsIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
-        },        {
             'title': 'Window Wells',
             'src': './assets/icons/WindowWellsIcon.png',
-            'desc': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+            'imageDescription': false,
+            'imageDescriptionPath': '',
+            'desc': 'Water drainage of your window well into our waterproofing system.'
         },
     ];
 
