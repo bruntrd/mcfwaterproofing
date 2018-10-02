@@ -89,8 +89,9 @@ body {
     color: white;
     font-size:40px;
     padding:5px 0;
-
-
+}
+.headerNumber{
+    font-size:30px;
 }
 #headerLogo{
     padding:10px 5px 0 5px;
@@ -328,10 +329,21 @@ body {
     text-align: left;
     color: white;
 }
+.contactRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width:100%;
+}
+.contactItem{
+    width:50%;
+    height:auto;
+}
 
 .contactInput {
-    margin: 10px 0 40px 0;
-    width: 400px;
+    margin: 10px 0 10px 0;
+    width: 95%;
     border: none;
     box-shadow: none;
     border-radius: 6px;
@@ -341,11 +353,21 @@ body {
 .contactFormButton {
     background-color: black;
     border-radius: 5px;
+    font-size:16px;
     color: white;
     box-shadow: none;
     border: none;
     padding: 5px 10px;
     margin-bottom: 10px;
+}
+
+.contactFormButton:hover{
+    cursor: pointer;
+}
+
+.disabled-class{
+    cursor:not-allowed !important;
+    color:lightgray;
 }
 
 /*services page*/
@@ -465,6 +487,11 @@ body {
     cursor: pointer;
     background: rgba(255, 255, 255, 0.2);
 }
+.basementArrow{
+    top:inherit;
+    position:relative;
+    top:40%;
+}
 
 .basementArrow:hover {
     cursor: pointer;
@@ -493,6 +520,8 @@ body {
 
 #modalImage {
     vertical-align: middle;
+    max-height:800px;
+    max-width:95%;
 }
 
 /*media breaks*/
@@ -626,8 +655,8 @@ body {
     .subHeader{
         font-size:18px;
     }
-    .contactInput {
-        width: 250px;
+    .contactRow{
+        width:350px;
     }
 
     .contactForm {
@@ -651,6 +680,19 @@ body {
     .howDescription{
         font-size:18px;
     }
+    .basementImage {
+        width: 15%;
+        padding:0;
+    }
+    .basementArrow{
+        top:inherit;
+        position:relative;
+    }
+    .headerButton{
+        padding:2px;
+        font-size:14px;
+    }
+
 
 }
 
@@ -710,5 +752,63 @@ body {
     }
     to {
         opacity: 1;
+    }
+}
+/*https://loading.io/css/ free loader*/
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+.lds-ellipsis div {
+    position: absolute;
+    top: 27px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background:#2C3E50;
+
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+    left: 26px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+    left: 45px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(19px, 0);
     }
 }

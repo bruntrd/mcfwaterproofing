@@ -1,13 +1,6 @@
 <div class="mainPageCol">
-    <div class="mainRowItem headerRow">
-        <div class="transparentOverlay">
-            <div class="header">MCF Waterproofing</div>
-            <div class="subHeader">Local and family owned waterproofing serving Southern Minnesota, Southwest Wisconsin,
-                and Northern Iowa with 15 years of experience</div>
-            <div class="subHeader">We install custom interior waterproofing systems based on your needs</div>
-            <button class="headerButton">Request an Estimate</button>
-        </div>
-    </div>
+    <pageheader></pageheader>
+
 </div>
 <div class="mainPageCol">
     <div class="mainRowItem homeRow1">
@@ -38,7 +31,6 @@
         <div class="serviceDescription" ng-class="{'fadeIn': fadeIn}">
             <h3 class="columnHeader">{{selectedService.title}}</h3>
             <p>{{selectedService.desc}}</p>
-            <button class="headerButton" style="margin-bottom:20px;">Request an Estimate</button>
         </div>
 
         <div class="arrowRight" ng-click="rightChange()"><i class="fa fa-chevron-right"
@@ -49,21 +41,64 @@
 <div class="mainPageCol">
     <div class="mainRowItem homeContact">
         <div class="imageOverlay">
-            <p style="color:white;margin:0;padding-top:20px;font-size:36px;">Want to get in contact
+            <p style="color:white;margin:0;padding-top:20px;font-size:36px;" ng-if="!sendingMessage && !showSent">Want
+                to get in contact
                 with us for an estimate?</p>
-
-            <div class="contactForm">
+            <div class="lds-ellipsis" ng-if="sendingMessage">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div style="color:white;margin:0;padding-top:20px;font-size:18px;height:80px" class="messageSuccess"
+                 ng-if="messageSuccess && showSent">
+                Message Sent!
+            </div>
+            <div style="color:white;margin:0;padding-top:20px;font-size:18px;height:80px" class="messageSuccess"
+                 ng-if="!messageSuccess && showSent">
+                Something went wrong, it could be on our end. You can always try calling Mike at (507)226-1478
+            </div>
+            <div class="contactForm" ng-if="!sendingMessage && !showSent">
                 <p style="color:white;margin:0;padding-top:20px;font-size:18px;">Just fill out this
                     and hit 'Submit' and we'll respond as soon as possible</p>
                 <form name="contactForm" novalidate style="margin-top:30px;">
-                    <label>What is your full name?</label><br>
-                    <input class="contactInput" ng-model="contact.name" required placeholder=""><br>
-                    <label>What is your phone number?</label><br>
-                    <input class="contactInput" ng-model="contact.number" required><br>
-                    <label>What is your full address?</label><br>
-                    <input class="contactInput" ng-model="contact.address" required><br>
+                    <div class="contactRow">
+                        <div class="contactItem">
+                            <label>First Name</label>
+                            <input class="contactInput" ng-model="contact.firstName" required placeholder="">
+                        </div>
+                        <div class="contactItem">
+                            <label>Last Name</label>
+                            <input class="contactInput" ng-model="contact.lastName" required placeholder="">
+                        </div>
+                    </div>
+                    <div class="contactRow">
+                        <div class="contactItem">
+                            <label>Phone Number</label>
+                            <input class="contactInput" ng-model="contact.number" required>
+                        </div>
+                        <div class="contactItem">
+                            <label>Email</label>
+                            <input class="contactInput" ng-model="contact.email" type="email" required>
+                        </div>
+                    </div>
+                    <div class="contractRow">
+                        <label>Address</label><br>
+                        <input class="contactInput" ng-model="contact.address">
+                    </div>
+                    <div class="contactRow">
+                        <div class="contactItem">
+                            <label>City</label>
+                            <input class="contactInput" ng-model="contact.city">
+                        </div>
+                        <div class="contactItem">
+                            <label>State</label>
+                            <input class="contactInput" ng-model="contact.state">
+                        </div>
+                    </div>
                 </form>
-                <button class="contactFormButton">Request an Estimate</button>
+                <input type="button" class="contactFormButton" ng-class="{'disabled-class': contactForm.$invalid}"
+                       ng-click="sendMessage(contact)" ng-disabled="contactForm.$invalid" value="Submit">
             </div>
         </div>
 

@@ -2,20 +2,63 @@
 
 <div class="estimateModal" ng-click="stayOpen($event)">
     <div class="estimateOverlay">
-        <p style="color:white;margin:0;padding-top:20px;font-size:36px;">Want to get in contact
+        <p style="color:white;margin:0;padding-top:20px;font-size:32px;" ng-if="!sendingMessage && !showSent">Want to get in contact
             with us for an estimate?</p>
-        <div class="contactForm">
-            <p style="color:white;margin:0;padding-top:20px;font-size:18px;">Just fill out this
+        <p style="color:white;margin:0;padding-top:20px;font-size:24px;" ng-if="!sendingMessage && !showSent">You can always call us at either 507-226-1478 or 952-737-7349</p>
+
+        <div class="lds-ellipsis" ng-if="sendingMessage">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div style="color:white;margin:0;padding-top:20px;font-size:18px;" class="messageSuccess" ng-if="messageSuccess && showSent">
+            Message Sent!
+        </div>
+        <div style="color:white;margin:0;padding-top:20px;font-size:18px;" class="messageSuccess" ng-if="!messageSuccess && showSent">
+            Something went wrong, it could be on our end. You can always try calling Mike at (507)226-1478
+        </div>
+        <div class="contactForm" ng-if="!sendingMessage && !showSent">
+            <p style="color:white;margin:0;padding-top:20px;font-size:18px;">Or just fill out this
                 and hit 'Submit' and we'll respond as soon as possible</p>
             <form name="contactForm" novalidate style="margin-top:30px;">
-                <label>What is your full name?</label><br>
-                <input class="contactInput" ng-model="contact.name" required placeholder=""><br>
-                <label>What is your phone number?</label><br>
-                <input class="contactInput" ng-model="contact.number" required><br>
-                <label>What is your full address?</label><br>
-                <input class="contactInput" ng-model="contact.address" required><br>
+                <div class="contactRow">
+                    <div class="contactItem">
+                        <label>First Name</label>
+                        <input class="contactInput" ng-model="contact.firstName" required placeholder="">
+                    </div>
+                    <div class="contactItem">
+                        <label>Last Name</label>
+                        <input class="contactInput" ng-model="contact.lastName" required placeholder="">
+                    </div>
+                </div>
+                <div class="contactRow">
+                    <div class="contactItem">
+                        <label>Phone Number</label>
+                        <input class="contactInput" ng-model="contact.number" required>
+                    </div>
+                    <div class="contactItem">
+                        <label>Email</label>
+                        <input class="contactInput" ng-model="contact.email" type="email" required>
+                    </div>
+                </div>
+                <div class="contractRow">
+                    <label>Address</label><br>
+                    <input class="contactInput" ng-model="contact.address">
+                </div>
+                <div class="contactRow">
+                    <div class="contactItem">
+                        <label>City</label>
+                        <input class="contactInput" ng-model="contact.city">
+                    </div>
+                    <div class="contactItem">
+                        <label>State</label>
+                        <input class="contactInput" ng-model="contact.state">
+                    </div>
+                </div>
             </form>
-            <button class="estimateFormButton">Request an Estimate</button>
+            <input type="button" class="contactFormButton" style="background-color:#F55404" ng-class="{'disabled-class': contactForm.$invalid}"
+                   ng-click="sendMessage(contact)" ng-disabled="contactForm.$invalid" value="Submit">
         </div>
     </div>
 </div>
