@@ -540,8 +540,8 @@ body {
 
 #modalImage {
     vertical-align: middle;
-    max-height: 800px;
-    max-width: 95%;
+    max-height: 90vh;
+    max-width: 90vw;
 }
 
 /*media breaks*/
