@@ -9,6 +9,7 @@ myApp.controller('HomeController', ['$scope', '$http', '$location', 'servicesFac
     $scope.sendingMessage = false;
     $scope.contact = {'firstName': '','lastName': '', 'number': '','email': '','city': '','state': '', 'address': ''};
     $scope.selectedService = $scope.services[serviceIndex];
+    console.log($scope.services);
 
     $scope.sendMessage = function(contact){
         $scope.sendingMessage = true;
@@ -44,7 +45,16 @@ myApp.controller('HomeController', ['$scope', '$http', '$location', 'servicesFac
         }
         $scope.selectedService = $scope.services[serviceIndex]
     };
-
+    $scope.openDescriptionImageModal = function (image) {
+        $scope.imageModal = true;
+        $scope.selectedDescriptionImage = image;
+    };
+    $scope.stayOpen = function ($event) {
+        $event.stopPropagation();
+    };
+    $scope.closeModal = function () {
+        $scope.imageModal = false;
+    };
 
     function fade() {
         $scope.fadeIn = true;
@@ -129,6 +139,9 @@ myApp.controller('ServicesController', ['$scope', '$http', 'servicesFactory', fu
     };
     $scope.closeModal = function () {
         $scope.imageModal = false;
+    };
+    $scope.stayOpen = function ($event) {
+        $event.stopPropagation();
     };
 }]);
 
