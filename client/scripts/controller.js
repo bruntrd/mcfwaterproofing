@@ -171,6 +171,7 @@ myApp.directive('estimate', function () {
         $scope.messageSuccess = false;
         $scope.sendingMessage = false;
 
+
         $rootScope.closeEstimate = function(){
             $rootScope.showContactForm = false;
         };
@@ -211,6 +212,11 @@ myApp.directive('navbar', function () {
             $scope.showNav = !$scope.showNav;
             !$scope.showNav ? $scope.hideNav = true : $scope.hideNav = false;
         };
+
+        $scope.changeRoute = function(route){
+            $location.path(route);
+            $scope.hideNav = true;
+        }
         $window.onresize = function () {
             if ($window.innerWidth < 940) {
                 $scope.showNav = false;

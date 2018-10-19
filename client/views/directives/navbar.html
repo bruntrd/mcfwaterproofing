@@ -8,17 +8,17 @@
 
 
     <div id="navList" ng-class="{'showNav' : showNav, 'hideNav': hideNav}">
-        <div class="navItem" ng-class="{'active' : isActive('/home')}"><a href="/home">HOME</a></div>
+        <div ng-click="changeRoute('home')" class="navItem" ng-class="{'active' : isActive('/home')}">HOME</div>
         <div class="divider">|</div>
-        <div class="navItem" ng-class="{'active' : isActive('/services')}"><a href="/services">SERVICES</a></div>
+        <div class="navItem" ng-click="changeRoute('services')" ng-class="{'active' : isActive('/services')}">SERVICES</div>
         <div class="divider">|</div>
-        <div class="navItem" ng-class="{'active' : isActive('/causes')}"><a href="/causes">CAUSES OF WET BASEMENTS</a></div>
+        <div class="navItem" ng-click="changeRoute('causes')" ng-class="{'active' : isActive('/causes')}">CAUSES OF WET BASEMENTS</div>
         <div class="divider">|</div>
-        <div class="navItem" ng-class="{'active' : isActive('/process')}"><a href="/process">OUR PROCESS</a></div>
+        <div class="navItem" ng-click="changeRoute('process')" ng-class="{'active' : isActive('/process')}">OUR PROCESS</div>
         <div class="divider">|</div>
-        <div class="navItem" ng-class="{'active' : isActive('/about')}"><a href="/about">ABOUT US</a></div>
+        <div class="navItem" ng-click="changeRoute('about')" ng-class="{'active' : isActive('/about')}">ABOUT US</div>
         <div class="divider">|</div>
-        <div class="navItem"><a ng-click="openContactModal()">REQUEST AN ESTIMATE</a></div>
+        <div ng-click="openContactModal()" class="navItem">REQUEST AN ESTIMATE</div>
     </div>
 
 </div>

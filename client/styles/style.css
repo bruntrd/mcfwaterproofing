@@ -22,6 +22,10 @@ body {
     min-height: 100vh;
 }
 
+.noScroll {
+    overflow: hidden;
+}
+
 .spaceEvenly {
     justify-content: space-evenly;
 }
@@ -57,18 +61,21 @@ body {
 .mainRowItem {
     align-items: flex-start;
 }
+
 .waterProofBreakdown {
     background-image: url('../images/HowDoYouWaterproofBackground.png');
-    height:100%;
+    height: 100%;
     text-align: center;
 }
+
 .breakdownOverlay {
     background: rgba(0, 0, 0, 0.7);
-    width:100%;
+    width: 100%;
     top: 0;
     left: 0;
     height: 100%;
 }
+
 .headerRow {
     background-image: url('../images/HeaderBackground.png');
     height: 300px;
@@ -76,9 +83,10 @@ body {
     color: white;
 
 }
+
 .transparentOverlay {
     background: rgba(0, 0, 0, 0.5);
-    width:100%;
+    width: 100%;
     top: 0;
     left: 0;
     height: 100%;
@@ -87,21 +95,24 @@ body {
 
 .header {
     color: white;
-    font-size:40px;
-    padding-top:3%;
-    padding-left:10px;
-    padding-right:10px;
+    font-size: 40px;
+    padding-top: 3%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.headerNumber{
-    font-size:30px;
+
+.headerNumber {
+    font-size: 30px;
 }
-#headerLogo{
-    padding:10px 5px 0 5px;
+
+#headerLogo {
+    padding: 10px 5px 0 5px;
 }
+
 .subHeader {
     color: white;
-    font-size:24px;
-    padding:5px 0;
+    font-size: 24px;
+    padding: 5px 0;
 }
 
 .headerButton {
@@ -112,12 +123,13 @@ body {
     box-shadow: none;
     border: none;
     padding: 10px 15px;
-    margin-top:5px;
-    margin-bottom:10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
-.headerButton:hover{
-    cursor:pointer;
-    background-color:#b03c03;
+
+.headerButton:hover {
+    cursor: pointer;
+    background-color: #b03c03;
 }
 
 .pageNameRow {
@@ -184,7 +196,7 @@ body {
 }
 
 /*estimate*/
-.estimateFormButton{
+.estimateFormButton {
     background-color: #F55404;
     border-radius: 5px;
     color: white;
@@ -217,15 +229,18 @@ body {
 #navToggle {
     display: none;
 }
-#navNumbers{
-    display:inline;
-    float:left;
-    font-size:24px;
+
+#navNumbers {
+    display: inline;
+    float: left;
+    font-size: 24px;
 }
-.number{
-    display:inline-block;
+
+.number {
+    display: inline-block;
 
 }
+
 #navList {
     /*width:100%;*/
     margin-top: 20px;
@@ -244,8 +259,9 @@ body {
     font-size: 14px;
     border-radius: 6px;
 }
-.navItem:hover{
-    cursor:pointer;
+
+.navItem:hover {
+    cursor: pointer;
 }
 
 .divider {
@@ -331,16 +347,18 @@ body {
     text-align: left;
     color: white;
 }
-.contactRow{
+
+.contactRow {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    min-width:300px;
+    min-width: 300px;
 }
-.contactItem{
-    width:250px;
-    height:auto;
+
+.contactItem {
+    width: 250px;
+    height: auto;
 }
 
 .contactInput {
@@ -355,7 +373,7 @@ body {
 .contactFormButton {
     background-color: black;
     border-radius: 5px;
-    font-size:16px;
+    font-size: 16px;
     color: white;
     box-shadow: none;
     border: none;
@@ -363,13 +381,13 @@ body {
     margin-bottom: 10px;
 }
 
-.contactFormButton:hover{
+.contactFormButton:hover {
     cursor: pointer;
 }
 
-.disabled-class{
-    cursor:not-allowed !important;
-    color:lightgray;
+.disabled-class {
+    cursor: not-allowed !important;
+    color: lightgray;
 }
 
 /*services page*/
@@ -418,7 +436,7 @@ body {
 }
 
 .whiteHeader {
-    padding-top:15px;
+    padding-top: 15px;
     font-size: 38px;
     color: white;
     font-weight: 700;
@@ -443,7 +461,7 @@ body {
 /*process*/
 .waterProofBreakdown {
     background-image: url('../images/HowDoYouWaterproofBackground.png');
-    height:100%;
+    height: 100%;
     text-align: center;
 }
 
@@ -478,7 +496,7 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    align-items:center;
+    align-items: center;
 }
 
 .basementImage {
@@ -498,7 +516,7 @@ body {
 .imageModalContainer {
     z-index: 100;
     background: rgba(0, 0, 0, 0.9);
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     position: fixed;
     top: 0;
@@ -507,19 +525,23 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow:auto;
 }
 
 #closeButton {
     position: fixed;
     top: 0;
     right: 0;
-    padding: 10px;
+    padding: 10px 30px;
+}
+#closeButton:hover{
+    curosor:pointer;
 }
 
 #modalImage {
     vertical-align: middle;
-    max-height:800px;
-    max-width:95%;
+    max-height: 800px;
+    max-width: 95%;
 }
 
 /*media breaks*/
@@ -548,11 +570,11 @@ body {
         float: right;
         margin-right: 45%;
     }
-    #navNumbers{
-        float:right;
-        padding-right:10px;
-    }
 
+    #navNumbers {
+        float: right;
+        padding-right: 10px;
+    }
 
     #navList {
         position: absolute;
@@ -573,8 +595,8 @@ body {
         display: none;
     }
 
-    .basementArrow{
-        height:30px;
+    .basementArrow {
+        height: 30px;
     }
 
     .showNav {
@@ -620,8 +642,9 @@ body {
         border-radius: 0;
         line-height: 50px;
     }
-    .navItem:hover{
-        cursor:pointer;
+
+    .navItem:hover {
+        cursor: pointer;
         color: #51C3DB;
     }
 
@@ -636,10 +659,24 @@ body {
 
 }
 
+@media only screen and (max-height: 500px) {
+    .navItem {
+        height: 30px;
+        line-height: 30px;
+    }
+    .estimateOverlay {
+        margin-top: 135px;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .aboutText {
         padding: 2%;
         font-size: 30px;
+    }
+
+    .estimateOverlay {
+        margin-top: 135px;
     }
 
     .textColumnLeft {
@@ -651,17 +688,19 @@ body {
         margin-left: 10px;
         margin-right: 10px;
     }
+
     /*.header{*/
-        /*font-size:30px;*/
+    /*font-size:30px;*/
     /*}*/
     /*.subHeader{*/
-        /*font-size:18px;*/
+    /*font-size:18px;*/
     /*}*/
-    #optionalHeader{
-        display:none;
+    #optionalHeader {
+        display: none;
     }
-    .contactRow{
-        width:350px;
+
+    .contactRow {
+        width: 350px;
     }
 
     .contactForm {
@@ -679,25 +718,29 @@ body {
     .serviceDescription {
         padding: 0 10px;
     }
-    .whiteHeader{
-        font-size:24px;
-    }
-    .howDescription{
-        font-size:18px;
-    }
-    .basementImage {
-        width: 15%;
-        padding:0;
-    }
-    .basementArrow{
-        top:inherit;
-        position:relative;
-    }
-    .headerButton{
-        padding:2px;
-        font-size:14px;
+
+    .whiteHeader {
+        font-size: 24px;
     }
 
+    .howDescription {
+        font-size: 18px;
+    }
+
+    .basementImage {
+        width: 15%;
+        padding: 0;
+    }
+
+    .basementArrow {
+        top: inherit;
+        position: relative;
+    }
+
+    .headerButton {
+        padding: 2px;
+        font-size: 14px;
+    }
 
 }
 
@@ -759,6 +802,7 @@ body {
         opacity: 1;
     }
 }
+
 /*https://loading.io/css/ free loader*/
 
 .lds-ellipsis {
@@ -767,32 +811,38 @@ body {
     width: 64px;
     height: 64px;
 }
+
 .lds-ellipsis div {
     position: absolute;
     top: 27px;
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background:#2C3E50;
+    background: #2C3E50;
 
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+
 .lds-ellipsis div:nth-child(1) {
     left: 6px;
     animation: lds-ellipsis1 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(2) {
     left: 6px;
     animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(3) {
     left: 26px;
     animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(4) {
     left: 45px;
     animation: lds-ellipsis3 0.6s infinite;
 }
+
 @keyframes lds-ellipsis1 {
     0% {
         transform: scale(0);
@@ -801,6 +851,7 @@ body {
         transform: scale(1);
     }
 }
+
 @keyframes lds-ellipsis3 {
     0% {
         transform: scale(1);
@@ -809,6 +860,7 @@ body {
         transform: scale(0);
     }
 }
+
 @keyframes lds-ellipsis2 {
     0% {
         transform: translate(0, 0);
